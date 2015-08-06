@@ -13,7 +13,7 @@ CSS 总结
     <link href="//cdn.bootcss.com/normalize/3.0.3/normalize.css" rel="stylesheet">
   ```
 
-[Normalize](https://github.com/necolas/normalize.css/)
+ * [Normalize](https://github.com/necolas/normalize.css/)
 
 
 ## HTML5 CSS3 兼容 IE
