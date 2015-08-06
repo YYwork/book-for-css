@@ -3,6 +3,10 @@ Responsive (适配)
   * [flexible](https://github.com/amfe/lib-flexible)
   * [Viewport Sizes](http://viewportsizes.com/)
   * [设计&切图](http://www.zhihu.com/question/25308946?utm_campaign=weibo_page&utm_medium=rss&utm_source=weibo)
+  * [retina](http://www.w3cplus.com/css/towards-retina-web.html)
+  * [retinajs](http://imulus.github.io/retinajs/)
+
+  * [参考](http://mobile.51cto.com/web-481943.htm)
 
 ### 屏幕参数
 
@@ -21,7 +25,7 @@ Responsive (适配)
       使用 before伪元素的 margin 撑开高度 ：不好复用
   2. vw(视口宽度) vh ：兼容性不行
   3. js 计算 ：不好复用
-  4. [固定 viewport=640px ：缩放，就会失真。]()
+  4. [固定 viewport=640px ：缩放，就会失真。](https://github.com/YYwork/book-for-html/blob/master/meta/meta.js)
   5. rem 用js给html设置一个跟屏幕宽度成正比的 font-size ，然后把元素宽高都用 rem 作为单位。
 
 使用 rem + js 解决适配
@@ -49,6 +53,24 @@ Responsive (适配)
 考虑到 `dpr` 判定的兼容性，用宽度替换来代替。
 
 ```
+
+  .icon {
+    background-image: url(example.png);
+    background-size: 200px 300px;
+    height: 300px;
+    width: 200px;
+  }
+
+  @media 
+    only screen and (-Webkit-min-device-pixel-ratio: 1.5),
+    only screen and (   -moz-min-device-pixel-ratio: 1.5),
+    only screen and (     -o-min-device-pixel-ratio: 3/2),
+    only screen and (        min-device-pixel-ratio: 1.5) {
+    .icon {
+      background-image: url(example@2x.png);
+    }
+  }
+
   p {
     font-size: 12px;
   }
@@ -58,3 +80,7 @@ Responsive (适配)
     }
   }
 ```
+
+### DPR 匹配
+
+  * [flexible](https://github.com/amfe/lib-flexible)
