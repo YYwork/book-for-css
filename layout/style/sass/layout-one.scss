@@ -1,0 +1,102 @@
+@import "compass";
+@import "susy";
+@import "breakpoint";
+@import "normalize";
+$susy: ( flow: ltr, math: fluid, output: float, gutter-position: after, container: auto, container-position: center, columns: 4, gutters: .25, column-width: false, global-box-sizing: content-box, last-flow: to, debug: ( image: show, color: rgba(#66f, .25), output: overlay, toggle: top right, ), use-custom: ( background-image: true, background-options: false, box-sizing: true, clearfix: false, rem: true, ));
+$color1: #fbeecb;
+$color2: #71dad2;
+$color3: #fae7b3;
+$color4: #ee9e9c;
+$color5: #f09671;
+$color6: #f6d784;
+$color7: #ea9fc3;
+
+/**
+ * Styles for AG grids & Container
+ */
+
+.container {
+  @include container(1080px);
+  @include clearfix;
+  background-color: $color1;
+}
+
+.ag {
+  @include border-radius(5px);
+}
+
+.ag1 {
+  @include span(2 of 10);
+  background-color: $color2;
+}
+
+.ag3 {
+  @include span(2 of 10 last);
+  background-color: $color2;
+}
+
+.ag2 {
+  @include span(6 of 10);
+  @include clearfix;
+  background-color: $color3;
+}
+
+.ag4,
+.ag5,
+.ag8,
+.ag9 {
+  background-color: $color4;
+}
+
+.ag4,
+.ag5 {
+  @include span(3 of 6);
+}
+
+.ag5 {
+  @include last;
+}
+
+.ag8 {
+  @include span(2 of 4);
+}
+
+.ag6 {
+  @include span(2 of 6);
+}
+
+.ag7 {
+  @include span(4 of 6 last);
+  @include clearfix;
+}
+
+.ag9 {
+  @include span(2 of 4 last);
+}
+
+.ag6 {
+  background-color: $color5;
+}
+
+.ag7 {
+  background-color: $color6;
+}
+
+.ag10 {
+  @include clearfix;
+  background-color: $color7;
+  @include span(full);
+}
+
+
+/**
+* Text Styles
+ */
+
+h2 {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: normal;
+  padding-top: 1.8rem;
+  padding-bottom: 1.8rem;
+}

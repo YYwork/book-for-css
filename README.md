@@ -38,3 +38,20 @@ CSS 总结
 
   * [Viewport Sizes](http://viewportsizes.com/)
   * [HTML CSS JavaScript 美化](http://tool.lu/)
+
+### compass 
+
+```
+sudo gem install sass 
+sudo gem install compass
+sudo gem install susy
+sudo gem install breakpoint
+```
+
+```
+gulp-compass 
+gulp-sass
+```
+
+
+[grayscale](http://james.padolsey.com/demos/grayscale/grayscale.js)

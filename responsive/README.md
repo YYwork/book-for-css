@@ -7,6 +7,7 @@ Responsive (适配)
   * [retinajs](http://imulus.github.io/retinajs/)
 
   * [参考](http://mobile.51cto.com/web-481943.htm)
+  * [移动端自适应方案](http://f2e.souche.com/blog/yi-dong-duan-zi-gua-ying-fang-an/#clue)
 
 ### 屏幕参数
 
@@ -84,3 +85,31 @@ Responsive (适配)
 ### DPR 匹配
 
   * [flexible](https://github.com/amfe/lib-flexible)
+
+### flex 适配
+
+## 概念
+
+- 物理像素(physical pixel)
+
+- 设备独立像素(density-independent pixel)
+
+- 完美视口
+
+`<meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0,maximum-scale=1.0"/>`
+
+- dpr
+
+`dpr` 是 `devicePixelRatio` 的简写，也就是`屏幕分辩比(设备像素比)`
+
+- scale
+
+`scale` 是屏幕拉伸比。也就是视口上的 `initial-scale` , `maximum-sacle` 等属性。
+
+- 基准
+
+以前是 iPhone 4 的 `320*480`， 现在更多的是 iPhone 6 的 `375*667`。
+
+- retina 
+
+
