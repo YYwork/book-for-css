@@ -1,34 +1,86 @@
 @import "compass";
 @import "compass/css3";
 @import "compass/utilities/";
-html,
-body {
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  text-decoration: none;
-}
-
+@import "./bower_components/compass-breakpoint/stylesheets/breakpoint";
 $base-width: 980px;
+$breakpoint-width: 720px;
 $nav-height: 42px;
 $nav-li-hover-color: #279005;
+$nav-li-border-color: #fff;
 $nav-bg-color: #37a508;
 $nav-font-color: #fff;
 $nav-items-font-color: #000;
 $nav-items-bg-color: #fff;
 $nav-items-border-color: #ddd;
 $nav-items-hover-color: #37a508;
+@mixin better_transparentize($color, $alpha) {
+  $c: rgba($color, $alpha);
+  $ie_c: ie_hex_str($c);
+  background: rgba($color, 1);
+  background: $c;
+  background: transparent\9;
+  zoom: 1;
+  filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$ie_c}, endColorstr=#{$ie_c})";
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$ie_c}, endColorstr=#{$ie_c})";
+}
+
+.nav-ico {
+  @include breakpoint($breakpoint-width) {
+    display: none;
+  }
+  @include inline-block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  &:hover {
+    & ~ .header-nav {
+      // visibility: visible;
+      display: block;
+    }
+  }
+}
+
+.nav-hide {
+  display: block;
+  text-align: right;
+  color: $nav-font-color;
+  padding: 4px;
+  background-color: transparent;
+  span {
+    @include inline-block;
+    padding: 6px 16px;
+    background-color: #fff;
+    @include border-radius(5px);
+    color: $nav-bg-color;
+  }
+  &:hover {
+    & ~ .header-nav {
+      // visibility: visible;
+      display: none;
+    }
+  }
+  @include breakpoint($breakpoint-width) {
+    display: none;
+  }
+}
+
 .header-nav {
+  // visibility: hidden;
+  display: none;
+  @include breakpoint($breakpoint-width) {
+    display: block;
+    height: $nav-height;
+  }
   background-color: $nav-bg-color;
   position: relative;
   text-align: center;
   width: 100%;
-  height: $nav-height;
   text-align: center;
+  //   &:hover {
+  //   display: block;
+  // }
   .nav-main {
-    width: $base-width;
+    max-width: $base-width;
     margin: 0 auto;
   }
   ul {
@@ -37,16 +89,26 @@ $nav-items-hover-color: #37a508;
     &>li {
       position: relative;
       list-style: none;
-      float: left;
-      @include inline-block;
+      display: block;
+      border-bottom: 1px solid $nav-li-border-color;
+      @include breakpoint($breakpoint-width) {
+        float: left;
+        @include inline-block;
+        border-bottom: none;
+      }
       &:hover {
         background-color: $nav-li-hover-color;
         .nav-items {
-          visibility: visible;
+          // display: block;
+          @include breakpoint($breakpoint-width) {
+            @include inline-block;
+            visibility: visible;
+          }
         }
       }
     }
     a {
+      text-decoration: none;
       @include inline-block;
       padding: 0 10px;
       line-height: $nav-height;
@@ -56,10 +118,17 @@ $nav-items-hover-color: #37a508;
 }
 
 .nav-items {
-  position: absolute;
+  position: relative;
+  @include clearfix;
   min-width: 100%;
-  visibility: hidden;
-  border: 1px solid $nav-bg-color;
+  // display: none;
+  @include breakpoint($breakpoint-width) {
+    position: absolute;
+    left: 0;
+    visibility: hidden;
+    @include inline-block;
+    border: 1px solid $nav-bg-color;
+  }
   margin-top: -1px;
   background-color: $nav-items-bg-color;
   ol {
@@ -67,11 +136,22 @@ $nav-items-hover-color: #37a508;
     margin: 0;
     &>li {
       list-style: none;
+      @include inline-block;
+      float: left;
+      @include box-sizing(border-box);
+      @include breakpoint($breakpoint-width) {
+        padding: 0 10px;
+      }
     }
     a {
+      text-decoration: none;
       line-height: $nav-height;
       color: $nav-items-font-color;
-      border-bottom: 1px solid $nav-items-border-color;
+      border-right: 1px solid $nav-items-border-color;
+      @include breakpoint($breakpoint-width) {
+        border-right: 0;
+        border-bottom: 1px solid $nav-items-border-color;
+      }
       &:hover {
         color: $nav-items-hover-color;
       }
