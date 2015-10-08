@@ -32,12 +32,15 @@ $nav-items-hover-color: #37a508;
   position: absolute;
   right: 0;
   top: 0;
-  &:hover {
-    & ~ .header-nav {
-      // visibility: visible;
-      display: block;
-    }
-  }
+}
+
+#tm {
+  display: none;
+}
+
+#tm:checked ~ .header-nav {
+  // visibility: visible;
+  display: block;
 }
 
 .nav-hide {
@@ -46,18 +49,12 @@ $nav-items-hover-color: #37a508;
   color: $nav-font-color;
   padding: 4px;
   background-color: transparent;
-  span {
+  label {
     @include inline-block;
     padding: 6px 16px;
     background-color: #fff;
     @include border-radius(5px);
     color: $nav-bg-color;
-  }
-  &:hover {
-    & ~ .header-nav {
-      // visibility: visible;
-      display: none;
-    }
   }
   @include breakpoint($breakpoint-width) {
     display: none;
@@ -76,7 +73,7 @@ $nav-items-hover-color: #37a508;
   text-align: center;
   width: 100%;
   text-align: center;
-  //   &:hover {
+  // &:hover {
   //   display: block;
   // }
   .nav-main {
@@ -101,18 +98,18 @@ $nav-items-hover-color: #37a508;
       }
       &:hover {
         background-color: $nav-li-hover-color;
-        .nav-items {
-          // display: block;
-          @include breakpoint($breakpoint-width) {
-            @include inline-block;
-            visibility: visible;
-          }
-        }
+        //   .nav-items {
+        //   // display: block;
+        //   @include breakpoint($breakpoint-width) {
+        //     @include inline-block;
+        //     visibility: visible;
+        //   }
+        // }
       }
     }
     a {
+      display: block;
       text-decoration: none;
-      @include inline-block;
       padding: 0 10px;
       line-height: $nav-height;
       color: $nav-font-color;
