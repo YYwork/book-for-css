@@ -83,6 +83,9 @@ $nav-items-hover-color: #37a508;
     max-width: $base-width;
     margin: 0 auto;
   }
+  .active {
+    background-color: $nav-li-hover-color;
+  }
   ul {
     padding: 0;
     margin: 0;
