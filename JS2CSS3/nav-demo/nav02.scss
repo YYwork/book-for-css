@@ -13,6 +13,7 @@ $nav-items-font-color: #000;
 $nav-items-bg-color: #fff;
 $nav-items-border-color: #ddd;
 $nav-items-hover-color: #37a508;
+$time-delay: 0.08s;
 .caret {
   display: inline-block;
   width: 0;
@@ -30,22 +31,13 @@ $nav-items-hover-color: #37a508;
   }
   @include inline-block;
   position: absolute;
-  right: 0;
+  left: 0;
   top: 0;
   background: url(../../demo-images/menu.png) no-repeat;
   width: 49px;
   height: 32px;
   background-size: (49px/1.5) (32px/1.5);
   background-position: center;
-}
-
-#tm {
-  display: none;
-}
-
-#tm:checked ~ .header-nav {
-  // visibility: visible;
-  display: block;
 }
 
 .nav-hide {
@@ -67,20 +59,25 @@ $nav-items-hover-color: #37a508;
 }
 
 .header-nav {
-  // visibility: hidden;
-  display: none;
+  // display: none;
+  padding-top: 30px;
+  width: 150px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
   @include breakpoint($breakpoint-width) {
     display: block;
     height: $nav-height;
+    padding-top: 0;
+    width: 100%;
+    left: initial;
+    top: initial;
+    bottom: initial;
+    position: relative;
   }
   background-color: $nav-bg-color;
-  position: relative;
   text-align: center;
-  width: 100%;
-  text-align: center;
-  // &:hover {
-  //   display: block;
-  // }
   .nav-main {
     max-width: $base-width;
     margin: 0 auto;
@@ -103,11 +100,13 @@ $nav-items-hover-color: #37a508;
       }
       &:hover {
         background-color: $nav-li-hover-color;
-        .nav-items {
-          // display: block;
-          @include breakpoint($breakpoint-width) {
-            @include inline-block;
-            visibility: visible;
+        @include breakpoint($breakpoint-width) {
+          .nav-items {
+            // display: block;
+            @include breakpoint($breakpoint-width) {
+              @include inline-block;
+              visibility: visible;
+            }
           }
         }
       }
@@ -118,16 +117,25 @@ $nav-items-hover-color: #37a508;
       padding: 0 10px;
       line-height: $nav-height;
       color: $nav-font-color;
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.4s;
+      @include breakpoint($breakpoint-width) {
+        opacity: initial;
+        transform: initial;
+        transition: initial;
+      }
     }
   }
 }
 
 .nav-items {
+  display: none;
   position: relative;
   @include clearfix;
   min-width: 100%;
-  // display: none;
   @include breakpoint($breakpoint-width) {
+    z-index: 9999;
     position: absolute;
     left: 0;
     visibility: hidden;
@@ -141,8 +149,7 @@ $nav-items-hover-color: #37a508;
     margin: 0;
     &>li {
       list-style: none;
-      @include inline-block;
-      float: left;
+      display: block;
       @include box-sizing(border-box);
       @include breakpoint($breakpoint-width) {
         padding: 0 10px;
@@ -152,14 +159,75 @@ $nav-items-hover-color: #37a508;
       text-decoration: none;
       line-height: $nav-height;
       color: $nav-items-font-color;
-      border-right: 1px solid $nav-items-border-color;
+      border-bottom: 1px solid $nav-items-border-color;
       @include breakpoint($breakpoint-width) {
         border-right: 0;
-        border-bottom: 1px solid $nav-items-border-color;
+        border-bottom: none;
       }
       &:hover {
         color: $nav-items-hover-color;
       }
     }
   }
+}
+
+.nav-aside-main {
+  transition: all 0.25s;
+}
+
+#tm {
+  display: none;
+  //   &:checked ~ .header-nav {
+  //   display: block;
+  // }
+  &:checked ~ .nav-aside-main {
+    transform: translateX(150px);
+  }
+  &:checked ~ .header-nav ul>li {
+    a {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    @for $i from 1 through 8 {
+      &:nth-child(#{$i})>a {
+        transition-delay: $time-delay*$i;
+      }
+    }
+  }
+}
+
+.tm-children {
+  display: none;
+}
+
+@for $i from 1 through 2 {
+  #tm-children#{$i} {
+    &:checked ~ .nav-items {
+      display: block;
+    }
+  }
+}
+
+.arrow {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  display: inline-block;
+  margin: 0;
+}
+
+.arrow-left:before {
+  border: none;
+  background-color: $nav-bg-color;
+  height: 30%;
+  width: 50%;
+  top: 35%;
+  left: 50%;
+}
+
+.arrow-left:after {
+  left: -50%;
+  top: 0;
+  border-width: 8px 8px;
+  border-right-color: $nav-bg-color;
 }
