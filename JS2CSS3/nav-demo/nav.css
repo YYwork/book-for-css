@@ -1,0 +1,76 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header-nav {
+  background-color: #37a508;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 42px;
+  text-align: center;
+}
+.header-nav .nav-main {
+  width: 980px;
+  margin: 0 auto;
+}
+.header-nav ul {
+  padding: 0;
+  margin: 0;
+}
+.header-nav ul > li {
+  position: relative;
+  list-style: none;
+  float: left;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+}
+.header-nav ul > li:hover {
+  background-color: #279005;
+}
+.header-nav ul > li:hover .nav-items {
+  visibility: visible;
+}
+.header-nav ul a {
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+  padding: 0 10px;
+  line-height: 42px;
+  color: #fff;
+}
+
+.nav-items {
+  position: absolute;
+  min-width: 100%;
+  visibility: hidden;
+  border: 1px solid #37a508;
+  margin-top: -1px;
+  background-color: #fff;
+}
+.nav-items ol {
+  padding: 0;
+  margin: 0;
+}
+.nav-items ol > li {
+  list-style: none;
+}
+.nav-items ol a {
+  line-height: 42px;
+  color: #000;
+  border-bottom: 1px solid #ddd;
+}
+.nav-items ol a:hover {
+  color: #37a508;
+}

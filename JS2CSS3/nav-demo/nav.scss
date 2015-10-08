@@ -1,0 +1,80 @@
+@import "compass";
+@import "compass/css3";
+@import "compass/utilities/";
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+$base-width: 980px;
+$nav-height: 42px;
+$nav-li-hover-color: #279005;
+$nav-bg-color: #37a508;
+$nav-font-color: #fff;
+$nav-items-font-color: #000;
+$nav-items-bg-color: #fff;
+$nav-items-border-color: #ddd;
+$nav-items-hover-color: #37a508;
+.header-nav {
+  background-color: $nav-bg-color;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: $nav-height;
+  text-align: center;
+  .nav-main {
+    width: $base-width;
+    margin: 0 auto;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    &>li {
+      position: relative;
+      list-style: none;
+      float: left;
+      @include inline-block;
+      &:hover {
+        background-color: $nav-li-hover-color;
+        .nav-items {
+          visibility: visible;
+        }
+      }
+    }
+    a {
+      @include inline-block;
+      padding: 0 10px;
+      line-height: $nav-height;
+      color: $nav-font-color;
+    }
+  }
+}
+
+.nav-items {
+  position: absolute;
+  min-width: 100%;
+  visibility: hidden;
+  border: 1px solid $nav-bg-color;
+  margin-top: -1px;
+  background-color: $nav-items-bg-color;
+  ol {
+    padding: 0;
+    margin: 0;
+    &>li {
+      list-style: none;
+    }
+    a {
+      line-height: $nav-height;
+      color: $nav-items-font-color;
+      border-bottom: 1px solid $nav-items-border-color;
+      &:hover {
+        color: $nav-items-hover-color;
+      }
+    }
+  }
+}
