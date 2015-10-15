@@ -1,20 +1,6 @@
-css3 
-动画
+## css3 动画
 
-transform 改变
-
-旋转 rotate 10deg
-倾斜 skew 10deg
-放大 scale 1.5
-移动 translate 20px 10px
-
-transform:rotate(45deg) skew(45deg) scale(2) translate(20px 20px);
-
-transition 在一定时间内平滑过渡
-
-animation keyframe
-
-[transform](http://www.w3cplus.com/content/css3-transform)
+- [transform](http://www.w3cplus.com/content/css3-transform)
 
 旋转rotate
 transform:rotate(30deg);
@@ -34,7 +20,17 @@ transform:scale(2, 1.5);
 ```
 
 
-[transition](http://www.w3cplus.com/content/css3-transition)
+- [transition](http://www.w3cplus.com/content/css3-transition)
+css的属性值在一定的时间区间内平滑地过渡。
 
-[animation](http://www.w3cplus.com/content/css3-animation)
+ transition ： [<'transition-property'> || <'transition-duration'> || <'transition-timing-function'> || <'transition-delay'> [, [<'transition-property'> || <'transition-duration'> || <'transition-timing-function'> || <'transition-delay'>]]*
+
+ transition主要包含四个属性值：
+ 
+ 执行变换的属性：transition-property,
+ 变换延续的时间：transition-duration,
+ 在延续时间段，变换的速率变化transition-timing-function,
+ 变换延迟时间transition-delay
+
+- [animation](http://www.w3cplus.com/content/css3-animation)
 
