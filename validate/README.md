@@ -1,4 +1,4 @@
-http://www.51xuediannao.com/demo.php
+http://www.runoob.com/jquery/jquery-plugin-validate.html
 
 http://jqueryvalidation.org/validate
 
