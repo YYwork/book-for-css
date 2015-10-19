@@ -123,6 +123,7 @@ gulp-sass
 
 ## 命名规则说明
 
+```
   1）所有的命名最好都小写
   2）属性的值一定要用双引号("")括起来，且一定要有值如class="divcss5",id="divcss5"
   3）每个标签都要有开始和结束，且要有正确的层次，排版有规律工整
@@ -133,10 +134,13 @@ gulp-sass
   8）给图片加上alt标签
   9）尽量使用英文命名原则
   10）尽量不缩写，除非一看就明白的单词
+```
 
 ## 相对网页外层重要部分CSS样式命名
 
 ### CSS文件命名 
+
+```
   master.css,style.css  主要的
   module.css  模块
   base.css  基本共用
@@ -147,8 +151,11 @@ gulp-sass
   forms.css 表单
   mend.css  补丁
   print.css 打印
+```
 
 ### 网页公共命名
+
+```
   #wrapper  页面外围控制整体布局宽度
   #container或#content 容器,用于最外层
   #layout 布局
@@ -201,9 +208,11 @@ gulp-sass
   .news 新闻
   .download 下载
   .banner 广告条(顶部广告条)
+```
 
 ### 电子贸易相关
 
+```
   .products 产品
   .products_prices  产品价格
   .products_description 产品描述
@@ -216,7 +225,7 @@ gulp-sass
   .keyword  关键词
   .blog 博客
   .forum  论坛
-
+```
 
 
 
